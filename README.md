@@ -1,5 +1,5 @@
 
-# 🎭 Fake Form Server – 
+# 🎭 Fake Form Server – Simulated backend server for phishing credential capture in the Stored XSS attack demonstration
 
 This is a **simulated phishing backend server** used to demonstrate the impact of a **Stored XSS attack**. It captures credentials submitted through a **fake login form** that is injected into the vulnerable app using malicious XSS payloads.
 
